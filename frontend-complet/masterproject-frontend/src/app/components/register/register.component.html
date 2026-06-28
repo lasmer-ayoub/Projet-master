@@ -1,0 +1,43 @@
+<div class="page-auth">
+  <div class="carte boite-auth">
+
+    <!-- Message de succes : compte en attente de validation -->
+    <div *ngIf="succes" class="attente">
+      <h1>Compte créé ✓</h1>
+      <p>Votre compte a bien été créé. Il doit maintenant être <strong>validé par
+         l'administrateur</strong> avant que vous puissiez vous connecter.</p>
+      <a routerLink="/login" class="btn-primaire pleine-largeur lien-bouton">Retour à la connexion</a>
+    </div>
+
+    <!-- Formulaire d'inscription -->
+    <div *ngIf="!succes">
+      <h1>Créer un compte</h1>
+      <p class="sous-titre">Votre compte sera activé après validation de l'administrateur</p>
+
+      <div class="message-erreur" *ngIf="erreur">{{ erreur }}</div>
+
+      <form (ngSubmit)="sInscrire()">
+        <div class="champ">
+          <label for="nom">Nom complet</label>
+          <input id="nom" type="text" name="nom" [(ngModel)]="nom" placeholder="Votre nom" required />
+        </div>
+        <div class="champ">
+          <label for="email">Email</label>
+          <input id="email" type="email" name="email" [(ngModel)]="email"
+                 placeholder="exemple@mail.com" required />
+        </div>
+        <div class="champ">
+          <label for="mdp">Mot de passe</label>
+          <input id="mdp" type="password" name="motDePasse" [(ngModel)]="motDePasse"
+                 placeholder="••••••••" required />
+        </div>
+        <button type="submit" class="btn-primaire pleine-largeur" [disabled]="chargement">
+          {{ chargement ? 'Création…' : 'Créer mon compte' }}
+        </button>
+      </form>
+
+      <p class="lien-bas">Déjà un compte ? <a routerLink="/login">Se connecter</a></p>
+    </div>
+
+  </div>
+</div>

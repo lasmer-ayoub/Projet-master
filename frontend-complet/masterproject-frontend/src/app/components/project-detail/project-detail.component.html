@@ -1,0 +1,40 @@
+<div class="conteneur" *ngIf="projet">
+  <button class="btn-secondaire retour" (click)="ouvrirTableau()">Ouvrir le tableau Kanban →</button>
+
+  <div class="entete">
+    <div>
+      <h1>{{ projet.nom }}</h1>
+      <p class="desc">{{ projet.description || 'Aucune description' }}</p>
+    </div>
+    <span class="badge-role" [class.responsable]="estResponsable">
+      {{ estResponsable ? 'Responsable' : 'Membre' }}
+    </span>
+  </div>
+
+  <div class="deux-colonnes">
+    <!-- Colonne gauche : statistiques -->
+    <div>
+      <div class="carte" *ngIf="stats">
+        <h3>Tableau de bord</h3>
+        <div class="avancement">
+          <div class="cercle">{{ stats.pourcentageTermine | number:'1.0-0' }}%</div>
+          <div>
+            <strong>{{ stats.totalTickets }}</strong> ticket(s) au total<br>
+            <span class="info">Avancement (tickets terminés)</span>
+          </div>
+        </div>
+        <div class="barre"><div class="barre-remplie" [style.width.%]="stats.pourcentageTermine"></div></div>
+
+        <ul class="repartition">
+          <li *ngFor="let s of statutsListe">
+            <span>{{ libelleStatut[s.statut] || s.statut }}</span>
+            <strong>{{ s.nombre }}</strong>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Colonne droite : membres -->
+    <app-members [idProjet]="idProjet" [estResponsable]="estResponsable"></app-members>
+  </div>
+</div>

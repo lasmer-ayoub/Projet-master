@@ -1,0 +1,43 @@
+.sidebar {
+  width: 250px;
+  min-width: 250px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-right: 1px solid var(--couleur-bordure);
+  display: flex;
+  flex-direction: column;
+  padding: 18px 14px;
+}
+.haut { margin-bottom: 18px; }
+.marque { display: flex; align-items: center; gap: 9px; font-weight: 700; font-size: 16px; margin-bottom: 18px; }
+.point { width: 14px; height: 14px; border-radius: 4px; background: var(--couleur-primaire); display: inline-block; }
+.profil { display: flex; align-items: center; gap: 10px; padding: 10px; background: var(--couleur-fond); border-radius: 8px; }
+.avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--couleur-primaire); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+.profil-infos { display: flex; flex-direction: column; overflow: hidden; }
+.nom { font-weight: 600; font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.role { font-size: 12px; color: var(--couleur-texte-doux); }
+
+.menu { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.menu a {
+  display: flex; align-items: center; gap: 11px;
+  padding: 11px 12px; border-radius: 8px;
+  color: var(--couleur-texte); text-decoration: none; font-weight: 500; font-size: 14px;
+  position: relative;
+}
+.menu a:hover { background: var(--couleur-fond); }
+.menu a.actif { background: var(--couleur-primaire); color: #fff; }
+.ico { width: 20px; text-align: center; font-size: 15px; }
+.pastille-compteur {
+  margin-left: auto; background: #ff5630; color: #fff;
+  font-size: 11px; font-weight: 700; border-radius: 20px; padding: 1px 8px; min-width: 20px; text-align: center;
+}
+.menu a.actif .pastille-compteur { background: #fff; color: #ff5630; }
+
+.bas { border-top: 1px solid var(--couleur-bordure); padding-top: 12px; }
+.btn-deconnexion {
+  width: 100%; display: flex; align-items: center; gap: 11px;
+  background: transparent; color: var(--couleur-texte-doux); padding: 11px 12px; font-weight: 500; text-align: left;
+}
+.btn-deconnexion:hover { background: #ffebe6; color: #bf2600; }

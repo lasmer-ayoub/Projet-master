@@ -1,0 +1,5 @@
+.deux-colonnes { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+.carte h3 { margin-top: 0; }
+.champ { margin-bottom: 14px; }
+.message-succes { background: #e3fcef; color: #006644; padding: 10px 12px; border-radius: 8px; font-size: 13px; margin-bottom: 12px; }
+@media (max-width: 760px) { .deux-colonnes { grid-template-columns: 1fr; } }

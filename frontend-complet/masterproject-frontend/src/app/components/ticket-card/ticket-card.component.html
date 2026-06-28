@@ -1,0 +1,26 @@
+<div class="ticket" (click)="ouvrir.emit(ticket)">
+  <div class="badges">
+    <span class="badge-type" [ngClass]="classeType()">{{ libelleType[ticket.type] || ticket.type }}</span>
+    <span class="badge-prio" [ngClass]="classePriorite()">{{ libellePriorite[ticket.priorite] || ticket.priorite }}</span>
+  </div>
+
+  <p class="titre">{{ ticket.titre }}</p>
+
+  <div class="deadline" *ngIf="aDeadline" [class.depassee]="deadlineDepassee">
+    <span class="ico-cal">📅</span>
+    {{ ticket.dateLimite | date:'dd/MM/yyyy' }}
+    <span *ngIf="deadlineDepassee" class="retard">en retard</span>
+  </div>
+
+  <div class="pied">
+    <span class="responsable" *ngIf="ticket.responsableNom">
+      <span class="avatar">{{ ticket.responsableNom.charAt(0).toUpperCase() }}</span>
+      {{ ticket.responsableNom }}
+    </span>
+    <span class="responsable non-affecte" *ngIf="!ticket.responsableNom">Non affecté</span>
+
+    <button class="modifier" *ngIf="peutModifier"
+            (click)="$event.stopPropagation(); modifier.emit(ticket)">Modifier</button>
+    <span class="lecture-seule" *ngIf="!peutModifier" title="Ce ticket ne vous est pas attribué">Lecture seule</span>
+  </div>
+</div>

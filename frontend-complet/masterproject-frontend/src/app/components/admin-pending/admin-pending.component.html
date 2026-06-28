@@ -1,0 +1,25 @@
+<div class="entete">
+  <h2>Comptes en attente de validation</h2>
+  <span class="compte">{{ enAttente.length }} en attente</span>
+</div>
+
+<p *ngIf="chargement" class="info">Chargement…</p>
+
+<div *ngIf="!chargement && enAttente.length === 0" class="carte vide">
+  <p>Aucun compte en attente. Toutes les inscriptions sont validées ✓</p>
+</div>
+
+<table class="tableau" *ngIf="!chargement && enAttente.length > 0">
+  <thead>
+    <tr><th>Nom</th><th>Email</th><th class="actions-col">Action</th></tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of enAttente">
+      <td>{{ u.nom }}</td>
+      <td>{{ u.email }}</td>
+      <td class="actions-col">
+        <button class="btn-valider" (click)="valider(u)">Valider le compte</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

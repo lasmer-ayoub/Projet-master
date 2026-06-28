@@ -1,0 +1,43 @@
+<div class="conteneur">
+  <div class="entete">
+    <h1>Mes projets</h1>
+    <button class="btn-primaire" (click)="afficherFormulaire = !afficherFormulaire">
+      {{ afficherFormulaire ? 'Annuler' : '+ Nouveau projet' }}
+    </button>
+  </div>
+
+  <!-- Formulaire de creation -->
+  <div class="carte formulaire" *ngIf="afficherFormulaire">
+    <div class="champ">
+      <label for="nom">Nom du projet</label>
+      <input id="nom" [(ngModel)]="nouveauNom" placeholder="Ex : Refonte du site web" />
+    </div>
+    <div class="champ">
+      <label for="desc">Description</label>
+      <textarea id="desc" [(ngModel)]="nouvelleDescription" rows="2"
+                placeholder="Quelques mots sur le projet"></textarea>
+    </div>
+    <button class="btn-primaire" (click)="creerProjet()">Créer le projet</button>
+  </div>
+
+  <!-- Chargement -->
+  <p *ngIf="chargement" class="info">Chargement…</p>
+
+  <!-- Aucun projet -->
+  <div *ngIf="!chargement && projets.length === 0" class="carte vide">
+    <p>Vous n'avez encore aucun projet.</p>
+    <p class="info">Cliquez sur « Nouveau projet » pour commencer.</p>
+  </div>
+
+  <!-- Grille des projets -->
+  <div class="grille" *ngIf="!chargement && projets.length > 0">
+    <div class="carte projet" *ngFor="let p of projets" (click)="ouvrirProjet(p)">
+      <div class="badge-role" [class.responsable]="p.monRoleProjet === 'RESPONSABLE'">
+        {{ p.monRoleProjet === 'RESPONSABLE' ? 'Responsable' : 'Membre' }}
+      </div>
+      <h3>{{ p.nom }}</h3>
+      <p class="desc">{{ p.description || 'Aucune description' }}</p>
+      <p class="createur">Créé par {{ p.createurNom }}</p>
+    </div>
+  </div>
+</div>

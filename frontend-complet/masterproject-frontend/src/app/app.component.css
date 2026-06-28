@@ -1,0 +1,2 @@
+.application { display: flex; min-height: 100vh; }
+.contenu-principal { flex: 1; min-width: 0; }

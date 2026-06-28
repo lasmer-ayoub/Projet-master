@@ -1,0 +1,59 @@
+<div class="entete">
+  <h2>Utilisateurs</h2>
+  <button class="btn-primaire" (click)="ouvrirCreation()">+ Ajouter un utilisateur</button>
+</div>
+
+<p *ngIf="chargement" class="info">Chargement…</p>
+
+<table class="tableau" *ngIf="!chargement">
+  <thead>
+    <tr><th>Nom</th><th>Email</th><th>Rôle</th><th class="actions-col">Actions</th></tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let u of utilisateurs">
+      <td>{{ u.nom }}</td>
+      <td>{{ u.email }}</td>
+      <td><span class="badge" [class.admin]="u.role === 'ADMIN'">{{ u.role }}</span></td>
+      <td class="actions-col">
+        <button class="btn-secondaire petit" (click)="ouvrirModification(u)">Modifier</button>
+        <button class="btn-danger petit" (click)="supprimer(u)">Supprimer</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Fenetre creation / modification -->
+<div class="fond" *ngIf="dialogueOuvert" (click)="fermer()">
+  <div class="boite" (click)="$event.stopPropagation()">
+    <h3>{{ modeModification ? 'Modifier l\'utilisateur' : 'Nouvel utilisateur' }}</h3>
+
+    <div class="message-erreur" *ngIf="erreur">{{ erreur }}</div>
+
+    <div class="champ">
+      <label>Nom</label>
+      <input [(ngModel)]="nom" placeholder="Nom complet" />
+    </div>
+    <div class="champ">
+      <label>Email</label>
+      <input type="email" [(ngModel)]="email" placeholder="exemple@mail.com" />
+    </div>
+    <div class="champ" *ngIf="!modeModification">
+      <label>Mot de passe</label>
+      <input type="password" [(ngModel)]="motDePasse" placeholder="••••••••" />
+    </div>
+    <div class="champ">
+      <label>Rôle</label>
+      <select [(ngModel)]="role">
+        <option value="USER">USER</option>
+        <option value="ADMIN">ADMIN</option>
+      </select>
+    </div>
+
+    <div class="actions">
+      <button class="btn-secondaire" (click)="fermer()">Annuler</button>
+      <button class="btn-primaire" (click)="enregistrer()">
+        {{ modeModification ? 'Enregistrer' : 'Créer' }}
+      </button>
+    </div>
+  </div>
+</div>

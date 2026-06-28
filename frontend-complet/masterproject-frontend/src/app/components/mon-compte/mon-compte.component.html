@@ -1,0 +1,43 @@
+<div class="conteneur">
+  <h1>Mon compte</h1>
+
+  <div class="deux-colonnes">
+    <!-- Profil -->
+    <div class="carte">
+      <h3>Mes informations</h3>
+      <div class="message-succes" *ngIf="messageProfil">{{ messageProfil }}</div>
+      <div class="message-erreur" *ngIf="erreurProfil">{{ erreurProfil }}</div>
+
+      <div class="champ">
+        <label>Nom</label>
+        <input [(ngModel)]="nom" placeholder="Votre nom" />
+      </div>
+      <div class="champ">
+        <label>Email</label>
+        <input type="email" [(ngModel)]="email" placeholder="exemple@mail.com" />
+      </div>
+      <div class="champ">
+        <label>Rôle</label>
+        <input [value]="role" disabled />
+      </div>
+      <button class="btn-primaire" (click)="enregistrerProfil()">Enregistrer</button>
+    </div>
+
+    <!-- Mot de passe -->
+    <div class="carte">
+      <h3>Changer mon mot de passe</h3>
+      <div class="message-succes" *ngIf="messageMdp">{{ messageMdp }}</div>
+      <div class="message-erreur" *ngIf="erreurMdp">{{ erreurMdp }}</div>
+
+      <div class="champ">
+        <label>Mot de passe actuel</label>
+        <input type="password" [(ngModel)]="ancienMotDePasse" placeholder="••••••••" />
+      </div>
+      <div class="champ">
+        <label>Nouveau mot de passe</label>
+        <input type="password" [(ngModel)]="nouveauMotDePasse" placeholder="••••••••" />
+      </div>
+      <button class="btn-primaire" (click)="changerMdp()">Changer le mot de passe</button>
+    </div>
+  </div>
+</div>

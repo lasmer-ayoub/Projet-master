@@ -1,0 +1,29 @@
+.conteneur .btn-secondaire { margin-bottom: 16px; }
+.entete-ticket { margin-bottom: 18px; }
+.badges { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.badge { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 4px; }
+.badge.type { background: #deebff; color: #0747a6; }
+.badge.prio { background: #fff0b3; color: #ff8b00; }
+.badge.statut { background: #e3fcef; color: #006644; }
+.entete-ticket h1 { margin: 6px 0; }
+.description { color: var(--couleur-texte-doux); line-height: 1.5; }
+.meta { font-size: 13px; color: var(--couleur-texte-doux); margin-bottom: 0; }
+.deux-colonnes { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+.ajout-commentaire { display: flex; gap: 8px; margin-bottom: 16px; }
+.ajout-commentaire textarea { flex: 1; }
+.ajout-commentaire button { align-self: flex-start; white-space: nowrap; }
+.vide { color: var(--couleur-texte-doux); font-style: italic; font-size: 13px; }
+.liste-commentaires { list-style: none; padding: 0; margin: 0; }
+.liste-commentaires li { display: flex; gap: 10px; margin-bottom: 12px; }
+.avatar { width: 30px; height: 30px; border-radius: 50%; background: var(--couleur-primaire); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; flex-shrink: 0; }
+.bulle { background: #f4f5f7; border-radius: 8px; padding: 8px 12px; flex: 1; }
+.ligne-auteur { display: flex; justify-content: space-between; align-items: center; margin-bottom: 3px; }
+.bulle p { margin: 0; line-height: 1.4; }
+.date, .meta-histo { font-size: 11px; color: var(--couleur-texte-doux); }
+.liste-historique { list-style: none; padding: 0; margin: 0; }
+.liste-historique li { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--couleur-bordure); font-size: 13px; }
+.liste-historique li:last-child { border-bottom: none; }
+.puce { width: 8px; height: 8px; border-radius: 50%; background: var(--couleur-primaire); margin-top: 6px; flex-shrink: 0; }
+.changement { color: var(--couleur-texte-doux); }
+.meta-histo { margin-top: 3px; }
+@media (max-width: 760px) { .deux-colonnes { grid-template-columns: 1fr; } }

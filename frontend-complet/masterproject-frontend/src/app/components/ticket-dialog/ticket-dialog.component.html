@@ -1,0 +1,62 @@
+<!-- Fond sombre semi-transparent -->
+<div class="fond" (click)="fermer.emit()">
+  <!-- La boite ; stopPropagation pour ne pas fermer en cliquant dedans -->
+  <div class="boite" (click)="$event.stopPropagation()">
+    <h2>{{ modeModification ? 'Modifier le ticket' : 'Nouveau ticket' }}</h2>
+
+    <div class="champ">
+      <label for="titre">Titre</label>
+      <input id="titre" [(ngModel)]="donnees.titre" placeholder="Titre du ticket" />
+    </div>
+
+    <div class="champ">
+      <label for="desc">Description</label>
+      <textarea id="desc" [(ngModel)]="donnees.description" rows="3"
+                placeholder="Description détaillée"></textarea>
+    </div>
+
+    <div class="ligne">
+      <div class="champ">
+        <label for="type">Type</label>
+        <select id="type" [(ngModel)]="donnees.type">
+          <option *ngFor="let t of types" [value]="t">{{ libelleType[t] }}</option>
+        </select>
+      </div>
+      <div class="champ">
+        <label for="prio">Priorité</label>
+        <select id="prio" [(ngModel)]="donnees.priorite">
+          <option *ngFor="let p of priorites" [value]="p">{{ libellePriorite[p] }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="champ">
+      <label for="deadline">Date limite (deadline)</label>
+      <input id="deadline" type="date" [(ngModel)]="donnees.dateLimite" />
+    </div>
+
+    <div class="ligne">
+      <!-- Le statut n'est modifiable qu'en mode modification -->
+      <div class="champ" *ngIf="modeModification">
+        <label for="statut">Statut</label>
+        <select id="statut" [(ngModel)]="donnees.statut">
+          <option *ngFor="let s of statuts" [value]="s">{{ libelleStatut[s] }}</option>
+        </select>
+      </div>
+      <div class="champ">
+        <label for="resp">Responsable</label>
+        <select id="resp" [(ngModel)]="donnees.responsableEmail">
+          <option value="">Non affecté</option>
+          <option *ngFor="let m of membres" [value]="m.email">{{ m.nom }} ({{ m.email }})</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-secondaire" (click)="fermer.emit()">Annuler</button>
+      <button class="btn-primaire" (click)="soumettre()">
+        {{ modeModification ? 'Enregistrer' : 'Créer le ticket' }}
+      </button>
+    </div>
+  </div>
+</div>

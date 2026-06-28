@@ -1,0 +1,15 @@
+# Fichiers compiles
+target/
+*.class
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+
+# Logs
+*.log
+
+# Fichiers systeme
+.DS_Store
+Thumbs.db

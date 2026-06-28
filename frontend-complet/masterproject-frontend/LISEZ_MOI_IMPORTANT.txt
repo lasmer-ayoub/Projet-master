@@ -1,0 +1,35 @@
+FRONTEND ANGULAR COMPLET ET A JOUR (avec espace administrateur)
+===============================================================
+
+Ce projet contient TOUT le frontend, deja a jour, avec l'espace admin
+integre et range correctement (plus aucun fichier a copier a la main).
+
+Le frontend est regle sur le port du backend : 8080.
+
+COMMENT L'UTILISER :
+  1. Supprimez votre ancien dossier frontend.
+  2. Decompressez ce dossier.
+  3. Dans VS Code : Fichier > Ouvrir le dossier, et choisissez le dossier
+     qui contient DIRECTEMENT le fichier package.json
+     (vous devez y voir aussi : src, angular.json, package.json).
+  4. Ouvrez un terminal (Terminal > Nouveau terminal) et tapez :
+         npm install        (a faire UNE seule fois, ~1 minute)
+         npm start
+  5. Ouvrez http://localhost:4200 dans le navigateur.
+
+CONNEXION ADMIN :
+  Email : admin@masterproject.com
+  Mot de passe : admin123
+  -> Une fois connecte en admin, le lien "Administration" apparait en haut a
+     droite. Il ouvre : Tableau de bord (chiffres + camembert + barres),
+     Utilisateurs (ajouter/modifier/supprimer), Projets (voir tous + supprimer).
+
+IMPORTANT :
+  - Le backend doit tourner sur le port 8080 (comme configure ici).
+  - Si vous changez le port du backend, modifiez aussi
+    src/app/core/api.config.ts pour mettre le meme port.
+
+RAPPEL POUR LANCER (dans l'ordre) :
+  1. XAMPP -> MySQL (Start)
+  2. Backend dans IntelliJ (port 8080, "Started...")
+  3. Frontend : npm start -> http://localhost:4200

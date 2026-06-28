@@ -1,0 +1,24 @@
+<div class="conteneur">
+  <div class="entete">
+    <h1>Notifications</h1>
+    <button class="btn-secondaire" *ngIf="nombreNonLues > 0" (click)="toutMarquerLues()">
+      Tout marquer comme lu
+    </button>
+  </div>
+
+  <p *ngIf="chargement" class="info">Chargement…</p>
+
+  <div *ngIf="!chargement && notifications.length === 0" class="carte vide">
+    <p>Vous n'avez aucune notification pour le moment.</p>
+  </div>
+
+  <ul class="liste" *ngIf="!chargement && notifications.length > 0">
+    <li *ngFor="let n of notifications" class="carte" [class.non-lue]="!n.lue">
+      <span class="puce" *ngIf="!n.lue"></span>
+      <div class="contenu">
+        <p class="message">{{ n.message }}</p>
+        <span class="date">{{ n.dateCreation | date:'short' }}</span>
+      </div>
+    </li>
+  </ul>
+</div>

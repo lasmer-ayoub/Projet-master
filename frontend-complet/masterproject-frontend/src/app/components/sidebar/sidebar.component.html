@@ -1,0 +1,45 @@
+<!-- La sidebar ne s'affiche que si l'utilisateur est connecte -->
+<aside class="sidebar" *ngIf="connecte">
+  <!-- En-tete : logo + utilisateur -->
+  <div class="haut">
+    <div class="marque"><span class="point"></span> Gestion de projets</div>
+    <div class="profil">
+      <div class="avatar">{{ nomUtilisateur.charAt(0).toUpperCase() }}</div>
+      <div class="profil-infos">
+        <span class="nom">{{ nomUtilisateur }}</span>
+        <span class="role">{{ roleLisible }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Menu -->
+  <nav class="menu">
+    <!-- Admin -->
+    <a *ngIf="estAdmin" routerLink="/admin" routerLinkActive="actif">
+      <span class="ico">⚙</span> Administration
+    </a>
+
+    <!-- Tous : mes projets -->
+    <a routerLink="/projets" routerLinkActive="actif">
+      <span class="ico">📁</span> Mes projets
+    </a>
+
+    <!-- Non-admin : notifications avec compteur -->
+    <a *ngIf="!estAdmin" routerLink="/notifications" routerLinkActive="actif">
+      <span class="ico">🔔</span> Notifications
+      <span class="pastille-compteur" *ngIf="nonLues > 0">{{ nonLues }}</span>
+    </a>
+
+    <!-- Tous : mon compte -->
+    <a routerLink="/mon-compte" routerLinkActive="actif">
+      <span class="ico">👤</span> Mon compte
+    </a>
+  </nav>
+
+  <!-- Bas : deconnexion -->
+  <div class="bas">
+    <button class="btn-deconnexion" (click)="deconnexion()">
+      <span class="ico">⎋</span> Se déconnecter
+    </button>
+  </div>
+</aside>

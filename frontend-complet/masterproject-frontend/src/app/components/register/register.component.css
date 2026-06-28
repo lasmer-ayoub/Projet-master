@@ -1,0 +1,16 @@
+.page-auth {
+  min-height: calc(100vh - 56px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+.boite-auth { width: 100%; max-width: 380px; }
+.sous-titre { color: var(--couleur-texte-doux); margin-top: -6px; margin-bottom: 20px; }
+.champ { margin-bottom: 16px; }
+.pleine-largeur { width: 100%; margin-top: 6px; }
+.lien-bas { text-align: center; margin-top: 18px; color: var(--couleur-texte-doux); font-size: 13px; }
+.lien-bas a { color: var(--couleur-primaire-fonce); font-weight: 600; text-decoration: none; }
+.lien-bouton { display: inline-block; text-align: center; text-decoration: none; margin-top: 14px; }
+.attente h1 { color: #006644; }
+.attente p { color: var(--couleur-texte-doux); line-height: 1.5; }

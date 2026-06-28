@@ -1,0 +1,56 @@
+<div class="conteneur" *ngIf="ticket">
+  <button class="btn-secondaire" (click)="retour()">← Retour au tableau</button>
+
+  <div class="carte entete-ticket">
+    <div class="badges">
+      <span class="badge type">{{ libelleType[ticket.type] || ticket.type }}</span>
+      <span class="badge prio">{{ libellePriorite[ticket.priorite] || ticket.priorite }}</span>
+      <span class="badge statut">{{ libelleStatut[ticket.statut] || ticket.statut }}</span>
+    </div>
+    <h1>{{ ticket.titre }}</h1>
+    <p class="description">{{ ticket.description || 'Aucune description' }}</p>
+    <p class="meta">
+      Responsable : <strong>{{ ticket.responsableNom || 'Non affecté' }}</strong>
+    </p>
+  </div>
+
+  <div class="deux-colonnes">
+    <!-- Commentaires -->
+    <div class="carte">
+      <h3>Commentaires</h3>
+      <div class="ajout-commentaire">
+        <textarea [(ngModel)]="nouveauCommentaire" rows="2" placeholder="Écrire un commentaire…"></textarea>
+        <button class="btn-primaire" (click)="ajouterCommentaire()">Envoyer</button>
+      </div>
+
+      <p class="vide" *ngIf="commentaires.length === 0">Aucun commentaire pour le moment.</p>
+      <ul class="liste-commentaires">
+        <li *ngFor="let c of commentaires">
+          <div class="avatar">{{ c.auteurNom.charAt(0).toUpperCase() }}</div>
+          <div class="bulle">
+            <div class="ligne-auteur"><strong>{{ c.auteurNom }}</strong>
+              <span class="date">{{ c.dateCreation | date:'short' }}</span>
+            </div>
+            <p>{{ c.contenu }}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Historique -->
+    <div class="carte">
+      <h3>Historique des modifications</h3>
+      <p class="vide" *ngIf="historique.length === 0">Aucune modification enregistrée.</p>
+      <ul class="liste-historique">
+        <li *ngFor="let h of historique">
+          <span class="puce"></span>
+          <div>
+            <strong>{{ libelleChamp(h.champModifie) }}</strong> modifié
+            <span class="changement">« {{ h.ancienneValeur || '—' }} » → « {{ h.nouvelleValeur || '—' }} »</span>
+            <div class="meta-histo">par {{ h.auteurNom }} · {{ h.dateModification | date:'short' }}</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

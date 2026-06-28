@@ -1,0 +1,55 @@
+<p *ngIf="chargement" class="info">Chargement des statistiques…</p>
+
+<div *ngIf="!chargement && stats">
+  <!-- Chiffres cles -->
+  <div class="chiffres">
+    <div class="carte chiffre">
+      <span class="valeur">{{ stats.totalUtilisateurs }}</span>
+      <span class="etiquette">Utilisateurs</span>
+    </div>
+    <div class="carte chiffre">
+      <span class="valeur">{{ stats.totalProjets }}</span>
+      <span class="etiquette">Projets</span>
+    </div>
+    <div class="carte chiffre">
+      <span class="valeur">{{ stats.totalTickets }}</span>
+      <span class="etiquette">Tickets</span>
+    </div>
+  </div>
+
+  <!-- Les deux graphes cote a cote -->
+  <div class="graphes">
+    <!-- Camembert : utilisateurs par role -->
+    <div class="carte">
+      <h3>Utilisateurs par rôle</h3>
+      <div class="camembert-zone" *ngIf="partsRole.length > 0">
+        <svg viewBox="0 0 200 200" class="camembert">
+          <path *ngFor="let p of partsRole" [attr.d]="p.chemin" [attr.fill]="p.couleur"
+                stroke="#fff" stroke-width="1.5"></path>
+        </svg>
+        <ul class="legende">
+          <li *ngFor="let p of partsRole">
+            <span class="pastille" [style.background]="p.couleur"></span>
+            {{ p.libelle }} — <strong>{{ p.valeur }}</strong> ({{ p.pourcentage }}%)
+          </li>
+        </ul>
+      </div>
+      <p *ngIf="partsRole.length === 0" class="info">Aucune donnée.</p>
+    </div>
+
+    <!-- Barres : tickets par statut -->
+    <div class="carte">
+      <h3>Tickets par statut</h3>
+      <div class="barres" *ngIf="barresStatut.length > 0">
+        <div class="barre-col" *ngFor="let b of barresStatut">
+          <span class="barre-valeur">{{ b.valeur }}</span>
+          <div class="barre-fut">
+            <div class="barre-remplie" [style.height.%]="b.hauteurPct" [style.background]="b.couleur"></div>
+          </div>
+          <span class="barre-libelle">{{ b.libelle }}</span>
+        </div>
+      </div>
+      <p *ngIf="barresStatut.length === 0" class="info">Aucun ticket pour le moment.</p>
+    </div>
+  </div>
+</div>

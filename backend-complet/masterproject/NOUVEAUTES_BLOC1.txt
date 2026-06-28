@@ -1,0 +1,11 @@
+BLOC 1 — VALIDATION DES COMPTES PAR L'ADMIN
+===========================================
+- A l'inscription, le compte est cree EN ATTENTE (il ne peut pas se connecter).
+- Tant que l'admin ne l'a pas valide, la connexion renvoie un message clair.
+- L'admin (espace Administration > onglet "Comptes en attente") voit les
+  inscriptions et les valide d'un clic.
+- Le compte admin et les comptes crees par l'admin sont valides d'office.
+
+Nouvelles routes backend :
+  GET /api/admin/users/pending        -> comptes en attente
+  PUT /api/admin/users/{id}/validate  -> valider un compte

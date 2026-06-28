@@ -1,0 +1,39 @@
+VERSION FINALE — RECAPITULATIF DES FONCTIONNALITES
+==================================================
+Backend Spring Boot (port 8080) + Frontend Angular (port 4200).
+
+1) VALIDATION DES COMPTES PAR L'ADMIN
+   - Inscription -> compte EN ATTENTE (connexion refusee tant que non valide).
+   - Admin > Administration > onglet "Comptes en attente" -> valider d'un clic.
+   - L'admin et les comptes crees par l'admin sont valides d'office.
+
+2) LE MEMBRE NE MODIFIE QUE SES TICKETS
+   - Le membre voit tout le Kanban, peut OUVRIR/LIRE tous les tickets,
+     mais ne peut MODIFIER/DEPLACER que les tickets qui lui sont attribues
+     (les autres affichent "Lecture seule"). Securite verifiee cote backend.
+
+3) NOTIFICATIONS (cloche + compteur)
+   - Notification quand on est invite a un projet.
+   - Notification quand un ticket nous est attribue.
+   - Page "Notifications" + compteur de non-lues dans la sidebar.
+
+4) SIDEBAR PAR ROLE (remplace l'ancienne barre du haut)
+   - Admin : Administration, Mes projets, Mon compte, Deconnexion.
+   - Responsable / Membre : Mes projets, Notifications, Mon compte, Deconnexion.
+
+5) MON COMPTE
+   - Voir et modifier nom + email.
+   - Changer son mot de passe (verification de l'ancien).
+
+6) DEADLINES DES TICKETS
+   - Date limite choisie a la creation/modification d'un ticket.
+   - Affichee sur la carte, en ROUGE si depassee.
+
+IMPORTANT — BASE DE DONNEES :
+   On a ajoute un champ "valide" et une table "notifications". Au demarrage,
+   Hibernate met la base a jour automatiquement. MAIS les utilisateurs deja
+   presents auront valide=false (donc bloques). Pour une demo propre, il est
+   conseille de SUPPRIMER la base "masterproject" dans phpMyAdmin : elle sera
+   recreee proprement avec le compte admin valide.
+
+COMPTE ADMIN : admin@masterproject.com / admin123

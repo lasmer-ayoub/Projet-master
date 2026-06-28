@@ -1,0 +1,12 @@
+.entete { display: flex; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+.entete h2 { margin: 0; }
+.compte { color: #bf2600; font-size: 13px; font-weight: 600; }
+.info { color: var(--couleur-texte-doux); }
+.vide { text-align: center; padding: 30px; color: var(--couleur-texte-doux); }
+.tableau { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: var(--ombre); }
+.tableau th, .tableau td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--couleur-bordure); }
+.tableau th { background: #f4f6fb; font-size: 12px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--couleur-texte-doux); }
+.tableau tr:last-child td { border-bottom: none; }
+.actions-col { text-align: right; }
+.btn-valider { background: #36b37e; color: #fff; }
+.btn-valider:hover { background: #2a9367; }

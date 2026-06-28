@@ -1,0 +1,31 @@
+.info { color: var(--couleur-texte-doux); }
+
+/* Chiffres cles */
+.chiffres { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 18px; }
+.chiffre { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 22px; }
+.chiffre .valeur { font-size: 34px; font-weight: 700; color: var(--couleur-primaire-fonce); }
+.chiffre .etiquette { color: var(--couleur-texte-doux); font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+
+/* Graphes */
+.graphes { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; align-items: start; }
+.graphes h3 { margin-top: 0; }
+
+/* Camembert */
+.camembert-zone { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+.camembert { width: 170px; height: 170px; flex-shrink: 0; }
+.legende { list-style: none; padding: 0; margin: 0; font-size: 14px; }
+.legende li { display: flex; align-items: center; gap: 8px; padding: 4px 0; }
+.pastille { width: 14px; height: 14px; border-radius: 3px; display: inline-block; }
+
+/* Barres */
+.barres { display: flex; align-items: flex-end; gap: 12px; height: 200px; padding-top: 10px; }
+.barre-col { flex: 1; display: flex; flex-direction: column; align-items: center; height: 100%; justify-content: flex-end; }
+.barre-valeur { font-weight: 700; font-size: 13px; margin-bottom: 4px; }
+.barre-fut { width: 100%; max-width: 46px; flex: 1; display: flex; align-items: flex-end; }
+.barre-remplie { width: 100%; border-radius: 6px 6px 0 0; min-height: 3px; transition: height 0.3s ease; }
+.barre-libelle { font-size: 11px; color: var(--couleur-texte-doux); margin-top: 6px; text-align: center; line-height: 1.2; }
+
+@media (max-width: 800px) {
+  .graphes { grid-template-columns: 1fr; }
+  .chiffres { grid-template-columns: 1fr; }
+}

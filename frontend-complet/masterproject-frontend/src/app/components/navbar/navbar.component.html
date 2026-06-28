@@ -1,0 +1,15 @@
+<!-- La barre ne s'affiche que si l'utilisateur est connecte -->
+<header class="navbar" *ngIf="connecte">
+  <div class="navbar-contenu">
+    <a class="marque" routerLink="/projets">
+      <span class="point"></span> Gestion de projets
+    </a>
+
+    <div class="droite">
+      <!-- Lien visible UNIQUEMENT pour l'administrateur -->
+      <a class="lien-admin" *ngIf="estAdmin" routerLink="/admin">Administration</a>
+      <span class="bonjour">Bonjour, {{ nomUtilisateur }}</span>
+      <button class="btn-secondaire" (click)="deconnexion()">Se déconnecter</button>
+    </div>
+  </div>
+</header>

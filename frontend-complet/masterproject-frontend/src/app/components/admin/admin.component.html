@@ -1,0 +1,18 @@
+<div class="conteneur">
+  <h1>Administration</h1>
+  <p class="sous-titre">Validation des comptes, gestion des utilisateurs, des projets et statistiques</p>
+
+  <div class="onglets">
+    <button [class.actif]="ongletActif === 'dashboard'" (click)="ongletActif = 'dashboard'">Tableau de bord</button>
+    <button [class.actif]="ongletActif === 'pending'" (click)="ongletActif = 'pending'">Comptes en attente</button>
+    <button [class.actif]="ongletActif === 'users'" (click)="ongletActif = 'users'">Utilisateurs</button>
+    <button [class.actif]="ongletActif === 'projects'" (click)="ongletActif = 'projects'">Projets</button>
+  </div>
+
+  <div class="contenu">
+    <app-admin-dashboard *ngIf="ongletActif === 'dashboard'"></app-admin-dashboard>
+    <app-admin-pending *ngIf="ongletActif === 'pending'"></app-admin-pending>
+    <app-admin-users *ngIf="ongletActif === 'users'"></app-admin-users>
+    <app-admin-projects *ngIf="ongletActif === 'projects'"></app-admin-projects>
+  </div>
+</div>

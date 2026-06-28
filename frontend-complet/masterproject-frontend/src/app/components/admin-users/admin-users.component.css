@@ -1,0 +1,17 @@
+.entete { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+.entete h2 { margin: 0; }
+.info { color: var(--couleur-texte-doux); }
+.tableau { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: var(--ombre); }
+.tableau th, .tableau td { text-align: left; padding: 11px 14px; border-bottom: 1px solid var(--couleur-bordure); }
+.tableau th { background: #f4f6fb; font-size: 12px; text-transform: uppercase; letter-spacing: 0.4px; color: var(--couleur-texte-doux); }
+.tableau tr:last-child td { border-bottom: none; }
+.badge { font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 20px; background: var(--couleur-colonne); color: var(--couleur-texte-doux); }
+.badge.admin { background: #eae6ff; color: #403294; }
+.actions-col { text-align: right; white-space: nowrap; }
+.petit { padding: 5px 10px; font-size: 12px; margin-left: 6px; }
+
+.fond { position: fixed; inset: 0; background: rgba(9,30,66,0.5); display: flex; align-items: center; justify-content: center; z-index: 100; padding: 20px; }
+.boite { background: #fff; border-radius: 10px; padding: 24px; width: 100%; max-width: 420px; box-shadow: 0 8px 28px rgba(9,30,66,0.35); }
+.boite h3 { margin-top: 0; }
+.champ { margin-bottom: 14px; }
+.actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px; }

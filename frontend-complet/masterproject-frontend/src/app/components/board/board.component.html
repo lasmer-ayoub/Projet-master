@@ -1,0 +1,50 @@
+<div class="board-page" *ngIf="projet">
+  <!-- Barre d'outils -->
+  <div class="barre">
+    <div class="gauche">
+      <button class="btn-secondaire" (click)="retour()">← Retour</button>
+      <h1>{{ projet.nom }}</h1>
+    </div>
+    <div class="droite">
+      <select [(ngModel)]="filtrePriorite" (change)="chargerTickets()" class="filtre">
+        <option value="">Toutes les priorités</option>
+        <option *ngFor="let p of priorites" [value]="p">{{ libellePriorite[p] }}</option>
+      </select>
+      <button class="btn-primaire" *ngIf="estResponsable" (click)="ouvrirCreation()">+ Nouveau ticket</button>
+    </div>
+  </div>
+
+  <!-- Les colonnes du Kanban -->
+  <div class="colonnes">
+    <div class="colonne" *ngFor="let s of statuts"
+         (dragover)="autoriserDepot($event)" (drop)="deposer(s)">
+      <div class="entete-colonne">
+        <span>{{ libelleStatut[s] }}</span>
+        <span class="compteur">{{ ticketsParStatut(s).length }}</span>
+      </div>
+
+      <div class="zone-cartes">
+        <div *ngFor="let t of ticketsParStatut(s)"
+             [attr.draggable]="peutModifierTicket(t)" (dragstart)="debutGlisser(t)">
+          <app-ticket-card
+            [ticket]="t"
+            [peutModifier]="peutModifierTicket(t)"
+            (ouvrir)="ouvrirDetail($event)"
+            (modifier)="ouvrirModification($event)">
+          </app-ticket-card>
+        </div>
+
+        <p class="colonne-vide" *ngIf="ticketsParStatut(s).length === 0">Aucun ticket</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Fenetre de creation / modification -->
+<app-ticket-dialog
+  *ngIf="dialogueOuvert"
+  [ticket]="ticketEnEdition"
+  [membres]="membres"
+  (valider)="enregistrerTicket($event)"
+  (fermer)="fermerDialogue()">
+</app-ticket-dialog>

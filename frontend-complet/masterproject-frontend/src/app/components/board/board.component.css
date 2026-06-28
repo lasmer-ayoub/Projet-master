@@ -1,0 +1,30 @@
+.board-page { padding: 20px 24px; }
+.barre { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; flex-wrap: wrap; gap: 12px; }
+.gauche { display: flex; align-items: center; gap: 14px; }
+.gauche h1 { margin: 0; font-size: 22px; }
+.droite { display: flex; align-items: center; gap: 10px; }
+.filtre { width: auto; }
+
+/* Les colonnes s'alignent horizontalement, avec defilement si besoin */
+.colonnes { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 10px; align-items: flex-start; }
+.colonne {
+  background: var(--couleur-colonne);
+  border-radius: 10px;
+  width: 270px;
+  min-width: 270px;
+  padding: 10px;
+  max-height: calc(100vh - 150px);
+  display: flex;
+  flex-direction: column;
+}
+.entete-colonne {
+  display: flex; align-items: center; justify-content: space-between;
+  font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.4px;
+  color: var(--couleur-texte-doux); padding: 4px 6px 10px;
+}
+.compteur {
+  background: #fff; color: var(--couleur-texte-doux); border-radius: 20px;
+  padding: 1px 9px; font-size: 12px;
+}
+.zone-cartes { overflow-y: auto; flex: 1; min-height: 40px; }
+.colonne-vide { text-align: center; color: var(--couleur-texte-doux); font-size: 12px; font-style: italic; padding: 16px 0; }

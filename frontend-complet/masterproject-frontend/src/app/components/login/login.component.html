@@ -1,0 +1,30 @@
+<div class="page-auth">
+  <div class="carte boite-auth">
+    <h1>Connexion</h1>
+    <p class="sous-titre">Accédez à vos projets et à vos tickets</p>
+
+    <div class="message-erreur" *ngIf="erreur">{{ erreur }}</div>
+
+    <form (ngSubmit)="seConnecter()">
+      <div class="champ">
+        <label for="email">Email</label>
+        <input id="email" type="email" name="email" [(ngModel)]="email"
+               placeholder="exemple@mail.com" required />
+      </div>
+
+      <div class="champ">
+        <label for="mdp">Mot de passe</label>
+        <input id="mdp" type="password" name="motDePasse" [(ngModel)]="motDePasse"
+               placeholder="••••••••" required />
+      </div>
+
+      <button type="submit" class="btn-primaire pleine-largeur" [disabled]="chargement">
+        {{ chargement ? 'Connexion…' : 'Se connecter' }}
+      </button>
+    </form>
+
+    <p class="lien-bas">
+      Pas encore de compte ? <a routerLink="/register">Créer un compte</a>
+    </p>
+  </div>
+</div>

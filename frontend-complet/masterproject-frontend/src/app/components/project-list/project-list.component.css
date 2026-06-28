@@ -1,0 +1,18 @@
+.entete { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.entete h1 { margin: 0; }
+.formulaire { margin-bottom: 22px; }
+.formulaire .champ { margin-bottom: 14px; }
+.info { color: var(--couleur-texte-doux); }
+.vide { text-align: center; padding: 40px; }
+.grille { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+.projet { cursor: pointer; transition: transform 0.12s ease, box-shadow 0.12s ease; position: relative; }
+.projet:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(9, 30, 66, 0.18); }
+.projet h3 { margin: 10px 0 6px; }
+.desc { color: var(--couleur-texte-doux); font-size: 13px; min-height: 34px; }
+.createur { color: var(--couleur-texte-doux); font-size: 12px; margin: 8px 0 0; }
+.badge-role {
+  display: inline-block; font-size: 11px; font-weight: 700; padding: 3px 9px;
+  border-radius: 20px; background: var(--couleur-colonne); color: var(--couleur-texte-doux);
+  text-transform: uppercase; letter-spacing: 0.4px;
+}
+.badge-role.responsable { background: #e3fcef; color: #006644; }

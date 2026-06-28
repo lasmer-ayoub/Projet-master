@@ -1,0 +1,26 @@
+<div class="carte">
+  <h3>Membres du projet</h3>
+
+  <!-- Liste des membres -->
+  <ul class="liste-membres">
+    <li *ngFor="let m of membres">
+      <div class="avatar">{{ m.nom.charAt(0).toUpperCase() }}</div>
+      <div class="infos">
+        <span class="nom">{{ m.nom }}</span>
+        <span class="email">{{ m.email }}</span>
+      </div>
+      <span class="badge" [class.responsable]="m.roleProjet === 'RESPONSABLE'">
+        {{ m.roleProjet === 'RESPONSABLE' ? 'Responsable' : 'Membre' }}
+      </span>
+    </li>
+  </ul>
+
+  <!-- Invitation (reservee au responsable) -->
+  <div class="invitation" *ngIf="estResponsable">
+    <div class="message-erreur" *ngIf="erreur">{{ erreur }}</div>
+    <div class="ligne-invite">
+      <input [(ngModel)]="emailInvite" placeholder="Email du membre à inviter" />
+      <button class="btn-primaire" (click)="inviter()">Inviter</button>
+    </div>
+  </div>
+</div>

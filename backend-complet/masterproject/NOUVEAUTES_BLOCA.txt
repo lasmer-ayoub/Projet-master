@@ -1,0 +1,16 @@
+BLOC A — LE MEMBRE NE MODIFIE QUE SES TICKETS
+=============================================
+Regle appliquee :
+ - le RESPONSABLE du projet peut modifier/deplacer TOUS les tickets ;
+ - un simple MEMBRE peut OUVRIR/LIRE tous les tickets, mais ne peut
+   MODIFIER ou DEPLACER que les tickets qui lui sont attribues.
+   Les autres tickets affichent "Lecture seule" et ne sont pas deplacables.
+
+Fichier backend modifie :
+  service/TicketService.java  (methode verifierPeutModifierTicket + import RoleProjet)
+
+Fichiers frontend modifies :
+  components/board/board.component.ts     (regle peutModifierTicket + AuthService)
+  components/board/board.component.html    (glisser autorise seulement si permis)
+  components/ticket-card/ticket-card.component.html  (mention "Lecture seule")
+  components/ticket-card/ticket-card.component.css

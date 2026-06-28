@@ -1,0 +1,11 @@
+.entete { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.entete h1 { margin: 0; }
+.info { color: var(--couleur-texte-doux); }
+.vide { text-align: center; padding: 36px; color: var(--couleur-texte-doux); }
+.liste { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+.liste li { display: flex; align-items: flex-start; gap: 12px; padding: 14px 16px; }
+.liste li.non-lue { border-left: 4px solid var(--couleur-primaire); background: #f0f6ff; }
+.puce { width: 9px; height: 9px; border-radius: 50%; background: var(--couleur-primaire); margin-top: 6px; flex-shrink: 0; }
+.contenu { flex: 1; }
+.message { margin: 0 0 4px; line-height: 1.4; }
+.date { font-size: 12px; color: var(--couleur-texte-doux); }

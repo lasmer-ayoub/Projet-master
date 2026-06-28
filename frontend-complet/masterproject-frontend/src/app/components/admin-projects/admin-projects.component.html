@@ -1,0 +1,30 @@
+<div class="entete">
+  <h2>Tous les projets</h2>
+  <span class="compte">{{ projets.length }} projet(s)</span>
+</div>
+
+<p *ngIf="chargement" class="info">Chargement…</p>
+
+<div class="grille" *ngIf="!chargement">
+  <div class="carte projet" *ngFor="let p of projets">
+    <div class="haut">
+      <h3>{{ p.nom }}</h3>
+      <button class="btn-danger petit" (click)="supprimer(p)">Supprimer</button>
+    </div>
+    <p class="desc">{{ p.description || 'Aucune description' }}</p>
+
+    <div class="ligne-info">
+      <span class="etiquette">Responsable</span>
+      <span class="valeur">{{ p.responsableNom }}</span>
+    </div>
+
+    <div class="ligne-info">
+      <span class="etiquette">Membres ({{ p.nombreMembres }})</span>
+      <span class="valeur">{{ p.membresNoms.join(', ') || '—' }}</span>
+    </div>
+
+    <div class="pied">
+      <span class="puce-tickets">{{ p.nombreTickets }} ticket(s)</span>
+    </div>
+  </div>
+</div>
